@@ -1,8 +1,12 @@
 import Express from "express";
-import { getConnection, PersonalInformation } from "./db";
+import frontend from "./endpoints/app";
+import crud from "./endpoints/crud";
 
 const app = Express();
 const port = 8000;
+
+app.use('/app', frontend);
+app.use('/api', crud);
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');
