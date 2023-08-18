@@ -47,6 +47,33 @@ function getRow(pi: PersonalInformation) {
 
 }
 
+function getFormRow() {
+    const tr = document.createElement("tr");
+    // 0. empty for ID
+    let td = document.createElement("td");
+    tr.appendChild(td);
+
+    // 1. values
+    for (let val of ['name', 'lang', 'os']) {
+        let tdName = document.createElement("td");
+        let inputName = document.createElement("input") as HTMLInputElement;
+        inputName.type = "text";
+        inputName.id = `form-${val}`
+        inputName.placeholder = val
+        tdName.appendChild(inputName);
+        tr.appendChild(tdName);
+    }
+    
+    // 2. add button
+    const addButton = document.createElement("button");
+    addButton.id = "form-add";
+    addButton.innerText = "add";
+    addButton.addEventListener("click", addPersonalInfo);
+    tr.appendChild(addButton);
+    return tr;
+
+}
+
 let localPiList:PersonalInformation[] = [];
 
 async function syncTable() {
@@ -61,6 +88,8 @@ async function syncTable() {
         let tr = getRow(pi);
         tableBody.appendChild(tr);
     }
+
+    tableBody.appendChild(getFormRow());
 
     // 3. init listeners
     initRowListeners();
@@ -129,12 +158,11 @@ async function deleteRow(e:Event) {
 
 /** -------------------- FORM LOGIC ------------------ */
 
-const formName = document.getElementById("form-name") as HTMLInputElement;
-const formLang = document.getElementById("form-lang") as HTMLInputElement;
-const formOs = document.getElementById("form-os") as HTMLInputElement;
-const formAdd = document.getElementById("form-add") as HTMLButtonElement;
-
 async function addPersonalInfo() {
+    const formName = document.getElementById("form-name") as HTMLInputElement;
+    const formLang = document.getElementById("form-lang") as HTMLInputElement;
+    const formOs = document.getElementById("form-os") as HTMLInputElement;
+
     // 1. collect data
     let data:PI_DATA = {
         id:0, // unimportant
@@ -155,8 +183,6 @@ async function addPersonalInfo() {
     formLang.value = "";
     formOs.value = "";
 }
-
-formAdd.addEventListener("click", addPersonalInfo);
 
 // init
 syncTable();
