@@ -1,16 +1,12 @@
 import Express from "express";
-import frontend from "./endpoints/app";
 import crud from "./endpoints/crud";
+import path from "node:path";
 
 const app = Express();
 const port = 8000;
 
-app.use('/app', frontend);
 app.use('/api', crud);
-
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
+app.use('/', Express.static(path.join(__dirname, 'frontend/dist')));
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
