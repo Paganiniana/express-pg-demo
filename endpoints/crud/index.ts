@@ -7,21 +7,25 @@ const router = Router();
 async function doCreate(req: Request, res: Response) {
     /** @todo */
     console.log("creating the record...");
+    return res.json({value:"todo"});
 }
 
 async function doRead(req: Request, res: Response) {
     /** @todo */
     console.log("reading all records...");
+    return res.json([{value:"todo"}]);
 }
 
 async function doUpdate(req: Request, res: Response) {
     /** @todo */
     console.log("updating all records...");
+    return res.json({value:"todo"});
 }
 
 async function doDelete(req: Request, res: Response) {
     /** @todo */
     console.log("updating all records...");
+    return res.json({value:"todo"});
 }
 
 router.get('/', doRead);
