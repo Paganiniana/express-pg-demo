@@ -9,4 +9,5 @@ To get started, run the following:
 
 ```bash
 npm install
+npm run start
 ```
