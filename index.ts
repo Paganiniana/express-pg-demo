@@ -5,6 +5,7 @@ import path from "node:path";
 const app = Express();
 const port = 8000;
 
+app.use(Express.json()); // use json body middleware
 app.use('/api', crud);
 app.use('/', Express.static(path.join(__dirname, 'frontend/dist')));
 

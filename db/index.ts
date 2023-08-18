@@ -42,7 +42,12 @@ export async function getConnection(): Promise<Sequelize> {
         favorite_os: {
             type: DataTypes.STRING,
         }
-      }, { sequelize });
+      }, { 
+        sequelize,
+        tableName: process.env.DB_TABLE_PERSONAL_INFO,
+     });
+
+     await sequelize.sync(); // force sync on load
 
     // 4. return
     return sequelize;

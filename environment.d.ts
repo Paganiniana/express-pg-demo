@@ -5,6 +5,7 @@ declare global {
         DB_NAME: string;
         DB_UNAME: string;
         DB_PASS: string;
+        DB_TABLE_PERSONAL_INFO: string;
       }
     }
   }
