@@ -7,6 +7,7 @@ const port = 8000;
 
 app.use(Express.json()); // use json body middleware
 app.use('/api', crud);
+app.use('/awesome/applicant', Express.static(path.join(__dirname, 'frontend/dist')));
 app.use('/', Express.static(path.join(__dirname, 'frontend/dist')));
 
 app.listen(port, () => {
