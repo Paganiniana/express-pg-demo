@@ -1,4 +1,5 @@
 import Express from "express";
+import { getConnection, PersonalInformation } from "./db";
 
 const app = Express();
 const port = 8000;
