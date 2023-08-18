@@ -3,10 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello, world!</h1>
+    <div id="app">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Favorite Language</th>
+                    <th>Favorite OS</th>
+                    <th></th> <!-- blank for buttons -->
+                </tr>
+            </thead>
+            <tbody id="app-body">
+
+            </tbody>
+        </table>
+        <hr/>
+
+        <div class="input-form">
+            <p>
+                <label>Name
+                    <input id="form-name" type="text">
+                </label>
+            </p>
+            <p>
+                <label>Favorite Language
+                    <input id="form-lang" type="text">
+                </label>
+            </p>
+            <p>
+                <label>Favorite OS
+                    <input id="form-os" type="text">
+                </label>
+            </p>
+            <p>
+                <button id="form-add">Add</button>
+            </p>
+        </form>
+    </div>
     <script type="module" src="/app.ts"></script>
 </body>
 </html>

@@ -51,23 +51,23 @@ export class PiInterface extends ServerInterface {
     }
 
     async delete(pi:PersonalInformation) {
-        await this.fetchJson("DELETE", pi.data);
+        return this.fetchJson("DELETE", pi.data);
     }
 
     async update(pi:PersonalInformation) {
-        await this.fetchJson("PUT", pi.data);
+        return this.fetchJson("PUT", pi.data);
     }
 }
 
 /** See {@link getConnection} for backend version */
-type PI_DATA = {
+export type PI_DATA = {
     id:number;
     name: string;
     favorite_language:string;
     favorite_os: string;
 }
 
-class PersonalInformation {
+export class PersonalInformation {
     data:PI_DATA;
     constructor(data:PI_DATA) {
         this.data = data;
